@@ -1,0 +1,87 @@
+﻿<Window x:Class="ZNAKManagementApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ZNAK Management App" Height="600" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Панель для ввода данных -->
+        <GroupBox Header="Добавить человека" Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Фамилия:"/>
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtLastName"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Имя:"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtFirstName"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Знак Зодиака:"/>
+                <ComboBox Grid.Row="2" Grid.Column="1" x:Name="cmbZodiacSign">
+                    <ComboBoxItem Content="Овен"/>
+                    <ComboBoxItem Content="Телец"/>
+                    <ComboBoxItem Content="Близнецы"/>
+                    <ComboBoxItem Content="Рак"/>
+                    <ComboBoxItem Content="Лев"/>
+                    <ComboBoxItem Content="Дева"/>
+                    <ComboBoxItem Content="Весы"/>
+                    <ComboBoxItem Content="Скорпион"/>
+                    <ComboBoxItem Content="Стрелец"/>
+                    <ComboBoxItem Content="Козерог"/>
+                    <ComboBoxItem Content="Водолей"/>
+                    <ComboBoxItem Content="Рыбы"/>
+                </ComboBox>
+
+                <Label Grid.Row="3" Grid.Column="0" Content="Дата рождения:"/>
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtDay" Width="40"/>
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtMonth" Width="40" Margin="50,0,0,0"/>
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtYear" Width="60" Margin="100,0,0,0"/>
+
+                <Label Grid.Row="4" Grid.Column="0" Content="Идентификационный номер:"/>
+                <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtIDNumber"/>
+
+                <Button Grid.Row="5" Grid.Column="1" Content="Добавить" Click="btnAdd_Click"/>
+            </Grid>
+        </GroupBox>
+
+        <!-- Список людей -->
+        <GroupBox Header="Отсортированный список людей" Grid.Row="1">
+            <ListBox x:Name="listBoxPeople" VerticalContentAlignment="Stretch"/>
+        </GroupBox>
+
+        <!-- Панель для поиска по месяцу -->
+        <GroupBox Header="Поиск по месяцу рождения" Grid.Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Content="Введите номер месяца (от 1 до 12):"/>
+                <TextBox Grid.Column="1" x:Name="txtSearchMonth"/>
+
+                <Button Grid.Column="1" Content="Найти по месяцу" Click="btnSearch_Click"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Результаты поиска" Grid.Row="3">
+            <ListBox x:Name="listBoxResults" VerticalContentAlignment="Stretch"/>
+        </GroupBox>
+    </Grid>
+</Window>
